@@ -25,6 +25,7 @@ Route::middleware([
 ])->group(function () {
 
     Route::get('/', [\App\Http\Controllers\Controller::class, 'showUser']);
+    Route::post('/user/submit', [\App\Http\Controllers\UserController::class, 'store'])->name('submit-user-form');
 
 });
 
