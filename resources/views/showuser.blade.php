@@ -12,7 +12,7 @@
 <div class="container mt-5">
     <h1 class="mb-4">User Data</h1>
     <h2 class="mb-4">This is your multi-tenant application. The id of the current tenant is {{$tenant->id}}</h2>
-    <table class="table">
+    <table class="table mb-5">
         <thead>
         <tr>
             <th>Name</th>
@@ -29,7 +29,41 @@
         </tr>
         @endforeach
         </tbody>
+
     </table>
+    <hr>
+
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-3"></div>
+            <div class="col-6">
+               @if(session('success'))
+                    <div class="alert alert-success">
+                      {{session('success')}}
+                    </div>
+               @endif
+                <form class="row g-3" action="{{ route('submit-user-form') }}" method="POST">
+                    @method('post')
+                    @csrf
+                    <!-- Email input -->
+                    <div class="form-outline mb-4">
+                        <input type="text" name="name" id="form1Example1" class="form-control" />
+                        <label class="form-label" for="form1Example1">Name</label>
+                    </div>
+
+                    <!-- Password input -->
+                    <div class="form-outline mb-4">
+                        <input type="text" name="email" id="form1Example2" class="form-control" />
+                        <label class="form-label" for="form1Example2">Email</label>
+                    </div>
+
+                    <!-- Submit button -->
+                    <button type="submit" class="btn btn-primary btn-block">Sign in</button>
+                </form>
+            </div>
+            <div class="col-3"></div>
+        </div>
+    </div>
 </div>
 
 <!-- Include Bootstrap JS (optional, for certain features) -->
