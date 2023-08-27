@@ -9,6 +9,26 @@
 <body>
 <div class="container mt-5">
     <div class="card text-center">
+        <table class="table mb-5">
+            <thead>
+            <tr>
+                <th>Business Name</th>
+                <td>Database Name</td>
+                <th>Domain</th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach($tenant as $t)
+                <tr>
+                    <td>{{$t->id}}</td>
+                    <td><a href="http://localhost:5151/index.php?route=/database/structure&db={{$t->tenancy_db_name}}" target="_blank"> {{$t->tenancy_db_name}}</a></td>
+                    <td><a href="http://{{$t->id}}.localhost:8000/" target="_blank">{{$t->id}}.localhost</a></td>
+                </tr>
+            @endforeach
+            </tbody>
+
+        </table>
+        <hr>
         <div class="card-header">
             Register your business
         </div>

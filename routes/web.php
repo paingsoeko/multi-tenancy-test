@@ -17,6 +17,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-
+Route::get('/', [BusinessController::class, 'showBusiness']);
 Route::post('/business/submit', [BusinessController::class, 'submitForm'])->name('submit-business-form');
 
